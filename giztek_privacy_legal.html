@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,15 +21,16 @@
       box-shadow: 0 0 20px #800050;
     }
 
-    h1, h2 {
+    h1 {
       text-align: center;
       color: #ff90d1;
       text-shadow: 0 0 8px #c0377c;
+      margin-bottom: 20px;
     }
 
     .search-bar {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-bottom: 30px;
       font-size: 1em;
       background: #34122e;
@@ -69,6 +69,13 @@
     ul {
       padding-left: 20px;
     }
+
+    mark {
+      background-color: #ff00aa;
+      color: #ffffff;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
   </style>
 </head>
 <body>
@@ -102,7 +109,7 @@
 
       <h3>Contact Information</h3>
       <p>Email: jm3450222@gmail.com<br>
-      Phone: 815-250-2287</p>
+         Phone: 815-250-2287</p>
     </div>
 
     <div class="footer">
@@ -111,10 +118,31 @@
   </div>
 
   <script>
-    function toggleInfo() {
-      const info = document.getElementById("policyInfo");
-      info.style.display = info.style.display === "none" ? "block" : "none";
+    const searchBar = document.querySelector(".search-bar");
+    const infoBox = document.getElementById("policyInfo");
+
+    function highlightMatches(text, query) {
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, `<mark>$1</mark>`);
     }
+
+    searchBar.addEventListener("input", () => {
+      const query = searchBar.value.trim();
+      const content = infoBox.innerHTML.replace(/<mark>|<\/mark>/g, ""); // Clear previous highlights
+
+      if (query.length > 0) {
+        infoBox.style.display = "block";
+        infoBox.innerHTML = highlightMatches(content, query);
+      } else {
+        infoBox.innerHTML = content;
+      }
+    });
+
+    function toggleInfo() {
+      const isVisible = infoBox.style.display === "block";
+      infoBox.style.display = isVisible ? "none" : "block";
+    }
+
     document.getElementById("policyInfo").style.display = "none";
   </script>
 </body>
