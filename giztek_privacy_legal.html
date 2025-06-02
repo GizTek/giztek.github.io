@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GizTek Legal - NanoGami Privacy Policy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom right, #2a0827, #1a0425);
+      color: #f3e6f5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      border: 6px double #c0377c;
+      padding: 40px;
+      background: rgba(30, 10, 50, 0.85);
+      box-shadow: 0 0 20px #800050;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #ff90d1;
+      text-shadow: 0 0 8px #c0377c;
+    }
+
+    .clickable {
+      width: 100%;
+      padding: 15px;
+      margin: 20px 0;
+      background: #4b1a3f;
+      border: 2px solid #c0377c;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+      color: #f3e6f5;
+      text-shadow: 0 0 5px #ff90d1;
+    }
+
+    .hidden {
+      display: none;
+      padding: 20px;
+      background-color: #34122e;
+      border: 2px dashed #8e3c6d;
+      margin-top: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #aa84a8;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>GizTek Legal</h1>
+    <h2>NanoGami – A DNA Origami Editor (v1.0)</h2>
+
+    <div class="clickable" onclick="toggleInfo()">📜 View Privacy Policy & App Info</div>
+
+    <div id="policyInfo" class="hidden">
+      <h3>Privacy Policy</h3>
+      <p>NanoGami does not collect or store personal user data. The application allows users to import, export, and work with various DNA-related file formats including JSON, PDB, .oxdna, .top, and .dat files. All files are accessed directly from the user’s device and no files are uploaded or stored externally by GizTek.</p>
+
+      <h3>Third-Party Services</h3>
+      <ul>
+        <li>Google AdMob – used for displaying ads in the unpaid version of the app</li>
+        <li>Google Analytics – used only for aggregate usage and monetization reporting (no personal data is collected)</li>
+        <li>Firebase – may be integrated in the future for improved performance and app logging</li>
+        <li>Three.js and OrbitControls – used for interactive 3D visualization</li>
+      </ul>
+      <p><strong>Disclaimer:</strong> AdMob, Google Analytics, and Firebase may have their own terms of service and privacy policies. Please refer to their official sites for more details.</p>
+
+      <h3>Contact Information</h3>
+      <p>Email: jm3450222@gmail.com<br>
+      Phone: 815-250-2287</p>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 GizTek. All Rights Reserved.
+    </div>
+  </div>
+
+  <script>
+    function toggleInfo() {
+      const info = document.getElementById("policyInfo");
+      info.style.display = info.style.display === "none" ? "block" : "none";
+    }
+    // Auto-hide default
+    document.getElementById("policyInfo").style.display = "none";
+  </script>
+</body>
+</html>
