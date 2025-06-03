@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GizTek Legal Terms and Conditions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom right, #2a0827, #1a0425);
+      color: #f3e6f5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      border: 6px double #c0377c;
+      padding: 40px;
+      background: rgba(30, 10, 50, 0.85);
+      box-shadow: 0 0 20px #800050;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff90d1;
+      text-shadow: 0 0 8px #c0377c;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 30px;
+      font-size: 1em;
+      background: #34122e;
+      border: 2px solid #8e3c6d;
+      color: #fff;
+    }
+
+    .clickable {
+      width: 100%;
+      padding: 15px;
+      margin: 20px 0;
+      background: #4b1a3f;
+      border: 2px solid #c0377c;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+      color: #f3e6f5;
+      text-shadow: 0 0 5px #ff90d1;
+    }
+
+    .hidden {
+      display: none;
+      padding: 20px;
+      background-color: #34122e;
+      border: 2px dashed #8e3c6d;
+      margin-top: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #aa84a8;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    mark {
+      background-color: #ff00aa;
+      color: #ffffff;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>GizTek Legal Terms and Conditions</h1>
+
+    <input class="search-bar" type="text" placeholder="Search GizTek apps & software...">
+
+    <div class="clickable" onclick="toggleInfo()">📜 NanoGami – A DNA Origami Editor (v1.0)</div>
+
+    <div id="policyInfo" class="hidden">
+      <h3>Privacy Policy (Expanded)</h3>
+      <p>At GizTek, your privacy is a core part of our design philosophy. This Privacy Policy explains how information is handled within NanoGami (v1.0) and our associated services. This application does not collect, track, store, or transmit any personally identifiable information.</p>
+
+      <p>Users interact with NanoGami through features such as file import/export, genetic modeling, and visual manipulation of DNA structures. Supported file formats include: .json, .pdb, .png, .oxdna, .top, and .dat. These files remain local to the user's device unless manually shared by the user. No files are uploaded or transmitted to GizTek servers.</p>
+
+      <h3>Third-Party Tools and Services</h3>
+      <ul>
+        <li><strong>AdMob:</strong> Displays advertisements in the free version of NanoGami. While we do not collect personal data, AdMob may use device identifiers or display behavior for ad optimization.</li>
+        <li><strong>Google Analytics:</strong> Used solely for anonymous usage reporting and crash analysis. We do not track or correlate this data to individuals.</li>
+        <li><strong>Firebase:</strong> May be used in the future for cloud logging and diagnostics. As of v1.0, no active Firebase user data collection is implemented.</li>
+        <li><strong>Three.js / OrbitControls.js:</strong> JavaScript libraries used to render interactive 3D visualizations. These libraries do not collect data.</li>
+      </ul>
+
+      <h3>User Responsibility</h3>
+      <p>By using NanoGami, you agree that GizTek is not liable for any data loss, damage, or third-party activity associated with exported/imported files or unauthorized use. You are responsible for backing up your data and understanding any third-party terms.</p>
+
+      <h3>Disclaimers</h3>
+      <p>GizTek does not provide medical or therapeutic advice. This app is designed for scientific and educational purposes. Any reliance on content or functionality is at your own risk.</p>
+      <p><strong>Note:</strong> AdMob, Firebase, and Google Analytics are governed by their own privacy terms and usage policies. We recommend reviewing their official documentation for more information.</p>
+
+      <h3>Contact Information</h3>
+      <p>Email: jm3450222@gmail.com<br>
+         Phone: 815-250-2287</p>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 GizTek. All Rights Reserved.
+    </div>
+  </div>
+
+  <script>
+    const searchBar = document.querySelector(".search-bar");
+    const infoBox = document.getElementById("policyInfo");
+
+    function highlightMatches(text, query) {
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, `<mark>$1</mark>`);
+    }
+
+    searchBar.addEventListener("input", () => {
+      const query = searchBar.value.trim();
+      const content = infoBox.innerHTML.replace(/<mark>|<\/mark>/g, ""); // Clear previous highlights
+
+      if (query.length > 0) {
+        infoBox.style.display = "block";
+        infoBox.innerHTML = highlightMatches(content, query);
+      } else {
+        infoBox.innerHTML = content;
+      }
+    });
+
+    function toggleInfo() {
+      const isVisible = infoBox.style.display === "block";
+      infoBox.style.display = isVisible ? "none" : "block";
+    }
+
+    document.getElementById("policyInfo").style.display = "none";
+  </script>
+</body>
+</html>
